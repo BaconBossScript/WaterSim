@@ -1,0 +1,76 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "BaconBoss Hub | Water Fighting Simulator!", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local TpTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+   
+
+_G.power = true
+function power()
+     while _G.power == true do
+        local args = {
+            [1] = "Power",
+            [2] = 999999999999
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AddValue"):FireServer(unpack(args))
+        wait(0)
+    end
+end
+
+TpTab:AddToggle({
+	Name = "INF POWER",
+	Default = false,
+	Callback = function(Value)
+		_G.power = Value
+        power()
+	end    
+})
+
+_G.win = true
+function win()
+     while _G.win == true do
+        local args = {
+            [1] = "Wins",
+            [2] = 999999999999
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AddValue"):FireServer(unpack(args))
+        wait(0)
+    end
+end
+
+TpTab:AddToggle({
+	Name = "INF WIN",
+	Default = false,
+	Callback = function(Value)
+		_G.win = Value
+        win()
+	end    
+})
+
+
+_G.spin = true
+function spin()
+     while _G.spin == true do
+        local args = {
+            [1] = "Spins",
+            [2] = 99
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AddValue"):FireServer(unpack(args))
+        wait(0)
+    end
+end
+
+TpTab:AddToggle({
+	Name = "INF SPIN",
+	Default = false,
+	Callback = function(Value)
+		_G.spin = Value
+        spin()
+	end    
+})
